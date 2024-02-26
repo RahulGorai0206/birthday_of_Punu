@@ -48,3 +48,13 @@ document.addEventListener("DOMContentLoaded", function() {
     button.style.left = newX + "px";
     button.style.top = newY + "px";
 });
+        // Function to start playing the music
+        function startMusic() {
+          var audio = document.getElementById('background-music');
+          audio.play();
+          // Remove the event listener after the first user interaction
+          window.removeEventListener('click', startMusic);
+      }
+
+      // Add an event listener for any user interaction (e.g., click)
+      window.addEventListener('click', startMusic);
