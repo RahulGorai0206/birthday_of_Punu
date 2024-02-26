@@ -1,6 +1,6 @@
 const ll = document.getElementById("ll");
 document.getElementById("ll").addEventListener("click", function() {
-  window.location.href = "https://wa.me/+918372924492?text=I+Love+youuuuuuuu"});
+  window.location.href = "https://wa.me/+918372924492?text=I+Love+youuuuuuuu+infinity+babyyyy+😚😚😚😚😚❤️"});
 
         // Function to start playing the music
         function startMusic() {
