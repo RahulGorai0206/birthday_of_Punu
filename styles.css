@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: myFirstFont;
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url(./Love.ttf);
+    font-weight: bold;
+}
+.main{
+    height: 100vh;
+    width: 100vw;
+    background-color: pink;
+    padding: 20px;
+}
+.upper{
+    text-align: center;
+    font-size: 50px;
+}
+.lower{
+    margin-top: 50px;
+    padding: 20px;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.lower button{
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 30px;
+    background-color: rgb(255, 68, 68);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.lower button:hover{
+    border: 1px solid black;
+    transition: 0.5s;
+}
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    backdrop-filter: blur(5px); /* applies blur effect to the background */
+    z-index: 999; /* ensure the overlay is behind the popup */
+  }
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+    height: 50vh;
+    width: 70vw;
+    border-radius: 10%;
+  }
+  
+  .popup-content {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  }
+  .popupText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+    width: 100%;
+  }
+  
+  .close {
+    float: right;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
