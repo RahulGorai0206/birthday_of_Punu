@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffecb3;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 3rem;
+      color: #ff4081;
+      animation: textAnimation 5s ease-in-out infinite;
+    }
+    @keyframes textAnimation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    #cake {
+      display: block;
+      margin: 30px auto;
+      width: 300px;
+      height: auto;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 50px;
+      height: 100px;
+      background-color: #ff4081;
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(50px) translateY(-500px); }
+      100% { transform: translateX(100px) translateY(-1000px); }
+    }
+    .string {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      width: 2px;
+      height: 100px;
+      background-color: #000;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday!</h1>
+  <img id="cake" src="cake.avif" alt="Birthday Cake">
+  <div class="balloon">
+    <div class="string"></div>
+  </div>
+  <div class="balloon" style="background-color: #3f51b5; left: 100px;">
+    <div class="string"></div>
+  </div>
+  <div class="balloon" style="background-color: #4caf50; left: 200px;">
+    <div class="string"></div>
+  </div>
+  <div class="balloon" style="background-color: #ffeb3b; left: 300px;">
+    <div class="string"></div>
+  </div>
+  <script>
+    function createBalloon() {
+      var balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.backgroundColor = getRandomColor();
+      balloon.style.left = Math.random() * window.innerWidth + 'px';
+      
+      // Create and attach the string
+      var string = document.createElement('div');
+      string.className = 'string';
+      balloon.appendChild(string);
+
+      document.body.appendChild(balloon);
+    }
+
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    setInterval(createBalloon, 1000);
+  </script>
+</body>
+</html>
