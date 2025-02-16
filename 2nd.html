@@ -87,7 +87,6 @@
       justify-content: center;
       align-items: center;
       font-size: 3rem;
-      z-index: 9999; /* Ensure it appears above other elements */
     }
   </style>
 </head>
@@ -154,14 +153,12 @@
 
     function blackoutPage() {
       // Hide the original content and show the blackout screen
-      document.body.style.visibility = 'hidden'; // Hide all elements on the page
+      document.body.style.visibility = 'hidden';
       const blackout = document.getElementById('blackout');
-      blackout.style.display = 'flex'; // Show the blackout screen
-
-      // Wait for 2 seconds before redirecting
+      blackout.style.display = 'flex';
       setTimeout(function() {
-        window.location.href = '2nd.html'; // Redirect to the next page
-      }, 2000); // Wait 2 seconds
+        window.location.href = '2nd.html'; // Redirect after blackout
+      }, 2000); // Wait for 2 seconds before redirecting
     }
 
     // Function to create and animate crackers when cake is clicked
