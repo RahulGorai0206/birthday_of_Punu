@@ -2,226 +2,239 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Test</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            padding-top: 100px;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: myFirstFont;
+    }
 
-        .buttons {
-            margin-top: 50px;
-        }
+    @font-face {
+      font-family: myFirstFont;
+      src: url(./Love.ttf);
+      font-weight: bold;
+    }
 
-        button {
-            font-size: 20px;
-            padding: 15px 30px;
-            margin: 10px;
-            border: 2px solid #333;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            z-index: 10;
-        }
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      padding-top: 100px;
+      overflow: hidden;
+    }
 
-        button:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .buttons {
+      margin-top: 50px;
+    }
 
-        #yes-btn {
-            background-color: #4CAF50;
-            color: white;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-        }
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      margin: 10px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      z-index: 10;
+    }
 
-        #no-btn {
-            background-color: #f44336;
-            color: white;
-        }
+    button:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Popup modal styling */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
+    #yes-btn {
+      background-color: #4CAF50;
+      color: white;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
 
-        .modal-content {
-            background-color: #fff;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            max-width: 500px;
-            width: 90%;
-        }
+    #no-btn {
+      background-color: #f44336;
+      color: white;
+    }
 
-        .modal-content h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    /* Popup modal styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
 
-        .modal-content p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            color: #555;
-        }
+    .modal-content {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      max-width: 500px;
+      width: 90%;
+    }
 
-        .modal-content button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .modal-content h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #333;
+    }
 
-        .modal-content button:hover {
-            background-color: #45a049;
-        }
+    .modal-content p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      color: #555;
+    }
 
-        /* Cracker styles */
-        .cracker {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-image: url('cracker.png');
-            background-size: cover;
-            animation: crackerAnimation 2s ease forwards;
-        }
+    .modal-content button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        @keyframes crackerAnimation {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
+    .modal-content button:hover {
+      background-color: #45a049;
+    }
 
-            50% {
-                transform: scale(1) translateY(-100px);
-                opacity: 1;
-            }
+    /* Cracker styles */
+    .cracker {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('cracker.png');
+      background-size: cover;
+      animation: crackerAnimation 2s ease forwards;
+    }
 
-            100% {
-                transform: scale(1.5) translateY(-200px);
-                opacity: 0;
-            }
-        }
+    @keyframes crackerAnimation {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
 
-        .crackers {
-            position: absolute;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-            top: 10px;
-        }
-    </style>
+      50% {
+        transform: scale(1) translateY(-100px);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.5) translateY(-200px);
+        opacity: 0;
+      }
+    }
+
+    .crackers {
+      position: absolute;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      top: 10px;
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Heyyy Babyyy, Do you love me?</h1>
-    <div class="buttons">
-        <button id="yes-btn" onclick="showLove()">Yes</button>
-        <button id="no-btn" onclick="increaseSize()">No</button>
+  <h1>Heyyy Babyyy, Do you love me?</h1>
+  <div class="buttons">
+    <button id="yes-btn" onclick="showLove()">Yes</button>
+    <button id="no-btn" onclick="increaseSize()">No</button>
+  </div>
+
+  <div id="crackers-container"></div>
+
+  <!-- Custom modal popup -->
+  <div id="loveModal" class="modal">
+    <div class="modal-content">
+      <h2>Love you toooooo baby! ❤️</h2>
+      <p>You make my heart go boom 💥</p>
+      <button onclick="closeModal()">Aww, Love you!</button>
     </div>
+  </div>
 
-    <div id="crackers-container"></div>
+  <script>
+    let yesButtonSize = 20;
 
-    <!-- Custom modal popup -->
-    <div id="loveModal" class="modal">
-        <div class="modal-content">
-            <h2>Love you toooooo baby! ❤️</h2>
-            <p>You make my heart go boom 💥</p>
-            <button onclick="closeModal()">Aww, Love you!</button>
-        </div>
-    </div>
+    function showLove() {
+      // Show the custom modal
+      document.getElementById('loveModal').style.display = 'flex';
 
-    <script>
-        let yesButtonSize = 20;
+      // Create 10 sets of crackers with a delay between each set
+      for (let i = 0; i < 10; i++) {
+        setTimeout(function () {
+          createCrackerSet();
+        }, i * 500); // Pop crackers every 500ms, 10 times
+      }
+    }
 
-        function showLove() {
-            // Show the custom modal
-            document.getElementById('loveModal').style.display = 'flex';
+    function increaseSize() {
+      const yesButton = document.getElementById("yes-btn");
 
-            // Create 10 sets of crackers with a delay between each set
-            for (let i = 0; i < 10; i++) {
-                setTimeout(function () {
-                    createCrackerSet();
-                }, i * 500); // Pop crackers every 500ms, 10 times
-            }
-        }
+      // Double the size of the Yes button on each No button click
+      yesButtonSize *= 2;
 
-        function increaseSize() {
-            const yesButton = document.getElementById("yes-btn");
+      // Set the button size and adjust padding to keep it responsive
+      yesButton.style.fontSize = yesButtonSize + 'px';
+      yesButton.style.padding = yesButtonSize / 2 + 'px ' + yesButtonSize + 'px';
 
-            // Double the size of the Yes button on each No button click
-            yesButtonSize *= 2;
+      // Temporarily change z-index to ensure button stays below the modal
+      yesButton.style.zIndex = '1';
 
-            // Set the button size and adjust padding to keep it responsive
-            yesButton.style.fontSize = yesButtonSize + 'px';
-            yesButton.style.padding = yesButtonSize / 2 + 'px ' + yesButtonSize + 'px';
+      // Allow the button to grow indefinitely
+      if (yesButtonSize >= window.innerWidth || yesButtonSize >= window.innerHeight) {
+        yesButton.style.left = '0';
+        yesButton.style.top = '0';
+        yesButton.style.width = '100vw';
+        yesButton.style.height = '100vh';
+        yesButton.style.fontSize = '10vw'; // Adjust font size for full page coverage
+        yesButton.style.padding = '20px';
+        yesButton.style.transform = 'none'; // Remove centering
+      }
+    }
 
-            // Temporarily change z-index to ensure button stays below the modal
-            yesButton.style.zIndex = '1';
+    function createCrackerSet() {
+      for (var i = 0; i < 20; i++) {
+        createCracker();
+      }
+    }
 
-            // Allow the button to grow indefinitely
-            if (yesButtonSize >= window.innerWidth || yesButtonSize >= window.innerHeight) {
-                yesButton.style.left = '0';
-                yesButton.style.top = '0';
-                yesButton.style.width = '100vw';
-                yesButton.style.height = '100vh';
-                yesButton.style.fontSize = '10vw'; // Adjust font size for full page coverage
-                yesButton.style.padding = '20px';
-                yesButton.style.transform = 'none'; // Remove centering
-            }
-        }
+    function createCracker() {
+      var cracker = document.createElement('div');
+      cracker.className = 'cracker';
+      cracker.style.left = Math.random() * window.innerWidth + 'px';
+      cracker.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(cracker);
 
-        function createCrackerSet() {
-            for (var i = 0; i < 20; i++) {
-                createCracker();
-            }
-        }
+      // Remove the cracker after the animation completes
+      setTimeout(function () {
+        cracker.remove();
+      }, 2000);
+    }
 
-        function createCracker() {
-            var cracker = document.createElement('div');
-            cracker.className = 'cracker';
-            cracker.style.left = Math.random() * window.innerWidth + 'px';
-            cracker.style.top = Math.random() * window.innerHeight + 'px';
-            document.body.appendChild(cracker);
+    // Close modal and redirect to index.html
+    function closeModal() {
+      // Hide the modal
+      document.getElementById('loveModal').style.display = 'none';
 
-            // Remove the cracker after the animation completes
-            setTimeout(function () {
-                cracker.remove();
-            }, 2000);
-        }
-
-        // Close modal and redirect to index.html
-        function closeModal() {
-            // Hide the modal
-            document.getElementById('loveModal').style.display = 'none';
-
-            // Redirect to index.html after closing the modal
-            window.location.href = "3rd.html";
-        }
-    </script>
+      // Redirect to index.html after closing the modal
+      window.location.href = "3rd.html";
+    }
+  </script>
 </body>
 
 </html>

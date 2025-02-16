@@ -1,196 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #ffecb3;
-      overflow: hidden;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      cursor: url('knife.png'), auto; /* Custom cursor */
-    }
-    h1 {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 3rem;
-      color: #ff4081;
-      animation: textAnimation 5s ease-in-out infinite;
-    }
-    @keyframes textAnimation {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    #cake {
-      display: block;
-      margin: 30px auto;
-      width: 300px;
-      height: auto;
-      cursor: url('knife.png'), auto; /* Keep knife cursor on cake */
-    }
-    .balloon {
-      position: absolute;
-      bottom: -150px;
-      width: 50px;
-      height: 100px;
-      background-color: #ff4081;
-      border-radius: 50%;
-      animation: float 10s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(50px) translateY(-500px); }
-      100% { transform: translateX(100px) translateY(-1000px); }
-    }
-    .string {
-      position: absolute;
-      top: 100px;
-      left: 50%;
-      width: 2px;
-      height: 100px;
-      background-color: #000;
-      transform: translateX(-50%);
-    }
-    .cracker {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      background-image: url('cracker.png'); /* Path to cracker image */
-      background-size: cover;
-      animation: crackerAnimation 2s ease forwards; /* Default animation duration */
-    }
-    @keyframes crackerAnimation {
-      0% { transform: scale(0); opacity: 1; }
-      50% { transform: scale(1) translateY(-100px); opacity: 1; }
-      100% { transform: scale(1.5) translateY(-200px); opacity: 0; }
-    }
-    #countdown {
-      text-align: center;
-      font-size: 2rem;
-      color: #3f51b5;
-      margin-top: 20px;
-    }
-    .blackout {
-      background-color: black;
-      color: rgb(255, 0, 0);
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      font-size: 3rem;
-      z-index: 9999; /* Ensure it appears above other elements */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: myFirstFont;
+        }
+
+        @font-face {
+            font-family: myFirstFont;
+            src: url(./Love.ttf);
+            font-weight: bold;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffecb3;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            cursor: url('knife.png'), auto;
+            /* Custom cursor */
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 3rem;
+            color: #ff4081;
+            animation: textAnimation 5s ease-in-out infinite;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #cake {
+            display: block;
+            margin: 30px auto;
+            width: 300px;
+            height: auto;
+            cursor: url('knife.png'), auto;
+            /* Keep knife cursor on cake */
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 50px;
+            height: 100px;
+            background-color: #ff4081;
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            50% {
+                transform: translateX(50px) translateY(-500px);
+            }
+
+            100% {
+                transform: translateX(100px) translateY(-1000px);
+            }
+        }
+
+        .string {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            width: 2px;
+            height: 100px;
+            background-color: #000;
+            transform: translateX(-50%);
+        }
+
+        .cracker {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('cracker.png');
+            /* Path to cracker image */
+            background-size: cover;
+            animation: crackerAnimation 2s ease forwards;
+            /* Default animation duration */
+        }
+
+        @keyframes crackerAnimation {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1) translateY(-100px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5) translateY(-200px);
+                opacity: 0;
+            }
+        }
+
+        #countdown {
+            text-align: center;
+            font-size: 2rem;
+            color: #3f51b5;
+            margin-top: 20px;
+        }
+
+        .blackout {
+            background-color: black;
+            color: rgb(255, 0, 0);
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            z-index: 9999;
+            /* Ensure it appears above other elements */
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Happy Birthday Punu !!!</h1>
-  <img id="cake" src="cake.png" alt="Birthday Cake">
-  <div class="balloon">
-    <div class="string"></div>
-  </div>
-  <div class="balloon" style="background-color: #3f51b5; left: 100px;">
-    <div class="string"></div>
-  </div>
-  <div class="balloon" style="background-color: #4caf50; left: 200px;">
-    <div class="string"></div>
-  </div>
-  <div class="balloon" style="background-color: #ffeb3b; left: 300px;">
-    <div class="string"></div>
-  </div>
+    <h1>Happy Birthday Punu !!!</h1>
+    <img id="cake" src="cake.png" alt="Birthday Cake">
+    <div class="balloon">
+        <div class="string"></div>
+    </div>
+    <div class="balloon" style="background-color: #3f51b5; left: 100px;">
+        <div class="string"></div>
+    </div>
+    <div class="balloon" style="background-color: #4caf50; left: 200px;">
+        <div class="string"></div>
+    </div>
+    <div class="balloon" style="background-color: #ffeb3b; left: 300px;">
+        <div class="string"></div>
+    </div>
 
-  <div id="countdown">30</div>
-  <div class="blackout" id="blackout">
-    <p>Very Happy Birthday Punu  !</p>
-  </div>
+    <div id="countdown">30</div>
+    <div class="blackout" id="blackout">
+        <p>Very Happy Birthday Punu !</p>
+    </div>
 
-  <script>
-    // Create balloons every second
-    function createBalloon() {
-      var balloon = document.createElement('div');
-      balloon.className = 'balloon';
-      balloon.style.backgroundColor = getRandomColor();
-      balloon.style.left = Math.random() * window.innerWidth + 'px';
-      
-      // Create and attach the string
-      var string = document.createElement('div');
-      string.className = 'string';
-      balloon.appendChild(string);
+    <script>
+        // Create balloons every second
+        function createBalloon() {
+            var balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.backgroundColor = getRandomColor();
+            balloon.style.left = Math.random() * window.innerWidth + 'px';
 
-      document.body.appendChild(balloon);
-    }
+            // Create and attach the string
+            var string = document.createElement('div');
+            string.className = 'string';
+            balloon.appendChild(string);
 
-    function getRandomColor() {
-      var letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
+            document.body.appendChild(balloon);
+        }
 
-    setInterval(createBalloon, 1000);
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
 
-    // Countdown timer
-    let countdownTime = 30;
-    const countdownDisplay = document.getElementById('countdown');
-    
-    const countdownInterval = setInterval(function() {
-      countdownTime--;
-      countdownDisplay.textContent = countdownTime;
-      if (countdownTime <= 0) {
-        clearInterval(countdownInterval);
-        blackoutPage();
-      }
-    }, 1000);
+        setInterval(createBalloon, 1000);
 
-    function blackoutPage() {
-      // Hide the original content and show the blackout screen
-      document.body.style.visibility = 'hidden'; // Hide all elements on the page
-      const blackout = document.getElementById('blackout');
-      blackout.style.display = 'flex'; // Show the blackout screen
+        // Countdown timer
+        let countdownTime = 30;
+        const countdownDisplay = document.getElementById('countdown');
 
-      // Wait for 2 seconds before redirecting
-      setTimeout(function() {
-        window.location.href = '2nd.html'; // Redirect to the next page
-      }, 2000); // Wait 2 seconds
-    }
+        const countdownInterval = setInterval(function () {
+            countdownTime--;
+            countdownDisplay.textContent = countdownTime;
+            if (countdownTime <= 0) {
+                clearInterval(countdownInterval);
+                blackoutPage();
+            }
+        }, 1000);
 
-    // Function to create and animate crackers when cake is clicked
-    document.getElementById('cake').addEventListener('click', function() {
-      for (let i = 0; i < 10; i++) {
-        setTimeout(function() {
-          createCrackerSet();
-        }, i * 500); // Pop crackers every 500ms, 10 times
-      }
-    });
+        function blackoutPage() {
+            // Hide the original content and show the blackout screen
+            document.body.style.visibility = 'hidden'; // Hide all elements on the page
+            const blackout = document.getElementById('blackout');
+            blackout.style.display = 'flex'; // Show the blackout screen
 
-    function createCrackerSet() {
-      for (var i = 0; i < 20; i++) {
-        createCracker();
-      }
-    }
+            // Wait for 2 seconds before redirecting
+            setTimeout(function () {
+                window.location.href = '2nd.html'; // Redirect to the next page
+            }, 2000); // Wait 2 seconds
+        }
 
-    function createCracker() {
-      var cracker = document.createElement('div');
-      cracker.className = 'cracker';
-      cracker.style.left = Math.random() * window.innerWidth + 'px';
-      cracker.style.top = Math.random() * window.innerHeight + 'px';
-      document.body.appendChild(cracker);
+        // Function to create and animate crackers when cake is clicked
+        document.getElementById('cake').addEventListener('click', function () {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(function () {
+                    createCrackerSet();
+                }, i * 500); // Pop crackers every 500ms, 10 times
+            }
+        });
 
-      // Remove the cracker after the animation completes
-      setTimeout(function() {
-        cracker.remove();
-      }, 2000); // Keep duration of the animation for each cracker as 2s
-    }
-  </script>
+        function createCrackerSet() {
+            for (var i = 0; i < 20; i++) {
+                createCracker();
+            }
+        }
+
+        function createCracker() {
+            var cracker = document.createElement('div');
+            cracker.className = 'cracker';
+            cracker.style.left = Math.random() * window.innerWidth + 'px';
+            cracker.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(cracker);
+
+            // Remove the cracker after the animation completes
+            setTimeout(function () {
+                cracker.remove();
+            }, 2000); // Keep duration of the animation for each cracker as 2s
+        }
+    </script>
 </body>
+
 </html>
