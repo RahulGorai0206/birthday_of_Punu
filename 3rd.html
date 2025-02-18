@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Know Why I Love You? 🙈🙈🙈</title>
+  <style>
+    /* Your Existing CSS (from previous template) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: myFirstFont;
+    }
+
+    @font-face {
+      font-family: myFirstFont;
+      src: url(./Love.ttf);
+      font-weight: bold;
+    }
+
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      padding-top: 20px;
+    }
+
+    .cracker {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('cracker.png');
+      background-size: cover;
+      animation: crackerAnimation 2s ease forwards;
+    }
+
+    @keyframes crackerAnimation {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1) translateY(-100px);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.5) translateY(-200px);
+        opacity: 0;
+      }
+    }
+
+    .crackers {
+      position: absolute;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      top: 10px;
+    }
+
+    .main {
+      height: auto;
+      width: 100%;
+      background-color: pink;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3em; /* Increased font size */
+      margin-bottom: 30px; /* Increased margin */
+      color: #e91e63; /* Pinkish color */
+    }
+
+    p {
+      font-size: 1.4em; /* Increased font size */
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 40px; /* Increased margin */
+    }
+
+    .start-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #4CAF50; /* Green color */
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .start-button:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+  </style>
+</head>
+
+<body class="main">
+
+  <div class="crackers">
+    <div class="cracker" style="left: 10%; top: 5%;"></div>
+    <div class="cracker" style="left: 30%; top: 15%;"></div>
+    <div class="cracker" style="left: 50%; top: 0%;"></div>
+    <div class="cracker" style="left: 70%; top: 20%;"></div>
+    <div class="cracker" style="left: 90%; top: 10%;"></div>
+  </div>
+
+  <h1>Do You Know Why I Love You?</h1>
+
+  <p>Maybe you have some ideas... but here are just a few of the many reasons why you're so special to me.</p>
+
+  <a href="./4th.html" class="start-button">Dekhe lao hehehheheh 🙈🙈🙈</a>
+
+</body>
+
+</html>

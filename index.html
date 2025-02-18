@@ -25,7 +25,7 @@
             background-color: #ffecb3;
             overflow: hidden;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            cursor: url('knife.png'), auto;
+            cursor: url('./knife.png'), auto;
             /* Custom cursor */
         }
 
@@ -145,12 +145,20 @@
             z-index: 9999;
             /* Ensure it appears above other elements */
         }
+
+        .main {
+            height: 100vh;
+            width: 100vw;
+            background-color: pink;
+            /* Ensure pink background */
+            padding: 20px;
+        }
     </style>
 </head>
 
-<body>
+<body class="main">
     <h1>Happy Birthday Punu !!!</h1>
-    <img id="cake" src="cake.png" alt="Birthday Cake">
+    <img id="cake" src="./cake.png" alt="Birthday Cake">
     <div class="balloon">
         <div class="string"></div>
     </div>

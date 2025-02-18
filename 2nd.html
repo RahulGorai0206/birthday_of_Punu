@@ -146,10 +146,18 @@
       width: 100%;
       top: 10px;
     }
+
+    .main {
+      height: 100vh;
+      width: 100vw;
+      background-color: pink;
+      /* Ensure pink background */
+      padding: 20px;
+    }
   </style>
 </head>
 
-<body>
+<body class="main">
   <h1>Heyyy Babyyy, Do you love me?</h1>
   <div class="buttons">
     <button id="yes-btn" onclick="showLove()">Yes</button>
@@ -232,7 +240,7 @@
       document.getElementById('loveModal').style.display = 'none';
 
       // Redirect to index.html after closing the modal
-      window.location.href = "3rd.html";
+      window.location.href = "./3rd.html";
     }
   </script>
 </body>
